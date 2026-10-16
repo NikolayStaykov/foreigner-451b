@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bvrr4s1yronx4"]
+
+[ext_resource type="Script" uid="uid://ckf8hgr17gptg" path="res://assets/scripts/ui/main_menu.gd" id="1_1g8jr"]
+[ext_resource type="FontFile" uid="uid://cylsrqxwo26bb" path="res://assets/text/CascadiaCode-VariableFont_wght.ttf" id="1_sl1te"]
+[ext_resource type="PackedScene" uid="uid://tsbldh16a7cw" path="res://scenes/ui/menu_button.tscn" id="2_fe2o3"]
+
+[sub_resource type="Theme" id="Theme_fe2o3"]
+default_font = ExtResource("1_sl1te")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g8jr"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m1kxf"]
+font_size = 42
+
+[node name="Control" type="Control" unique_id=1535132306]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1g8jr")
+
+[node name="main_panel_container" type="PanelContainer" parent="." unique_id=2128086824]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.825
+anchor_bottom = 16.225
+offset_left = 2.0
+offset_top = 1.0
+theme = SubResource("Theme_fe2o3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1g8jr")
+
+[node name="main_margin_container" type="MarginContainer" parent="main_panel_container" unique_id=188922453]
+layout_mode = 2
+
+[node name="main_v_box_container" type="VBoxContainer" parent="main_panel_container/main_margin_container" unique_id=934295923]
+layout_mode = 2
+
+[node name="title_label" type="Label" parent="main_panel_container/main_margin_container/main_v_box_container" unique_id=517435886]
+layout_mode = 2
+text = "FOREIGNER-451b"
+label_settings = SubResource("LabelSettings_m1kxf")
+horizontal_alignment = 1
+
+[node name="button_margin_container" type="MarginContainer" parent="main_panel_container/main_margin_container/main_v_box_container" unique_id=110930243]
+layout_mode = 2
+
+[node name="button_v_box_container" type="VBoxContainer" parent="main_panel_container/main_margin_container/main_v_box_container/button_margin_container" unique_id=393045481]
+layout_mode = 2
+
+[node name="new_game_button" parent="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container" unique_id=1211913045 instance=ExtResource("2_fe2o3")]
+layout_mode = 2
+label_name = "new_game_button_label"
+
+[node name="load_game_button" parent="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container" unique_id=1874503318 instance=ExtResource("2_fe2o3")]
+layout_mode = 2
+label_name = "load_game_button_label"
+
+[node name="options_button" parent="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container" unique_id=1502806516 instance=ExtResource("2_fe2o3")]
+layout_mode = 2
+label_name = "options_button_label"
+
+[node name="quit_button" parent="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container" unique_id=11855102 instance=ExtResource("2_fe2o3")]
+layout_mode = 2
+label_name = "quit_button_label"
+
+[node name="options_container" type="PanelContainer" parent="." unique_id=807129636]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.825
+anchor_bottom = 16.225
+offset_left = 2.0
+offset_top = 1.0
+theme = SubResource("Theme_fe2o3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1g8jr")
+
+[node name="credits_container" type="PanelContainer" parent="." unique_id=2043477757]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.825
+anchor_bottom = 16.225
+offset_left = 2.0
+offset_top = 1.0
+theme = SubResource("Theme_fe2o3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1g8jr")
+
+[connection signal="pressed" from="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container/options_button" to="." method="_on_options_button_pressed"]
