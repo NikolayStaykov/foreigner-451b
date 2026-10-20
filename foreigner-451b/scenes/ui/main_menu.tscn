@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://ckf8hgr17gptg" path="res://assets/scripts/ui/main_menu.gd" id="1_1g8jr"]
 [ext_resource type="FontFile" uid="uid://cylsrqxwo26bb" path="res://assets/text/CascadiaCode-VariableFont_wght.ttf" id="1_sl1te"]
 [ext_resource type="PackedScene" uid="uid://tsbldh16a7cw" path="res://scenes/ui/menu_button.tscn" id="2_fe2o3"]
+[ext_resource type="Script" uid="uid://2u52i4agsdmg" path="res://assets/scripts/global/label_script.gd" id="4_m1kxf"]
+[ext_resource type="PackedScene" uid="uid://btrrc3q2hok5p" path="res://scenes/ui/dropdown_menu.tscn" id="6_uhagc"]
 
 [sub_resource type="Theme" id="Theme_fe2o3"]
 default_font = ExtResource("1_sl1te")
@@ -15,9 +17,10 @@ font_size = 42
 
 [node name="Control" type="Control" unique_id=1535132306]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 0.035
+anchor_bottom = 0.062000003
+offset_right = -0.3199997
+offset_bottom = -0.1760025
 script = ExtResource("1_1g8jr")
 
 [node name="main_panel_container" type="PanelContainer" parent="." unique_id=2128086824]
@@ -33,6 +36,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_1g8jr")
 
 [node name="main_margin_container" type="MarginContainer" parent="main_panel_container" unique_id=188922453]
 layout_mode = 2
+theme_override_constants/margin_top = 50
 
 [node name="main_v_box_container" type="VBoxContainer" parent="main_panel_container/main_margin_container" unique_id=934295923]
 layout_mode = 2
@@ -45,9 +49,13 @@ horizontal_alignment = 1
 
 [node name="button_margin_container" type="MarginContainer" parent="main_panel_container/main_margin_container/main_v_box_container" unique_id=110930243]
 layout_mode = 2
+theme_override_constants/margin_left = 450
+theme_override_constants/margin_top = 168
+theme_override_constants/margin_right = 450
 
 [node name="button_v_box_container" type="VBoxContainer" parent="main_panel_container/main_margin_container/main_v_box_container/button_margin_container" unique_id=393045481]
 layout_mode = 2
+theme_override_constants/separation = 18
 
 [node name="new_game_button" parent="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container" unique_id=1211913045 instance=ExtResource("2_fe2o3")]
 layout_mode = 2
@@ -76,6 +84,39 @@ offset_left = 2.0
 offset_top = 1.0
 theme = SubResource("Theme_fe2o3")
 theme_override_styles/panel = SubResource("StyleBoxFlat_1g8jr")
+
+[node name="options_margin_container" type="MarginContainer" parent="options_container" unique_id=128591559]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+
+[node name="options_v_box_container" type="VBoxContainer" parent="options_container/options_margin_container" unique_id=1146200656]
+layout_mode = 2
+
+[node name="resolution_h_box_container" type="HBoxContainer" parent="options_container/options_margin_container/options_v_box_container" unique_id=1154848727]
+layout_mode = 2
+theme_override_constants/separation = 53
+
+[node name="resolution_label" type="Label" parent="options_container/options_margin_container/options_v_box_container/resolution_h_box_container" unique_id=1038140139]
+layout_mode = 2
+text = "lorem ipsum"
+script = ExtResource("4_m1kxf")
+label_name = "resolution_label"
+
+[node name="dropdown_menu" parent="options_container/options_margin_container/options_v_box_container/resolution_h_box_container" unique_id=115906626 instance=ExtResource("6_uhagc")]
+layout_mode = 2
+item_count = 5
+popup/item_0/text = "640x480"
+popup/item_0/id = 480
+popup/item_1/text = "1280x720"
+popup/item_1/id = 729
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 1080
+popup/item_3/text = "2560x1440"
+popup/item_3/id = 1440
+popup/item_4/text = "3840×2160"
+popup/item_4/id = 2160
 
 [node name="credits_container" type="PanelContainer" parent="." unique_id=2043477757]
 unique_name_in_owner = true

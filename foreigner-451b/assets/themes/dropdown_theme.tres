@@ -1,0 +1,69 @@
+[gd_resource type="Theme" format=3 uid="uid://cge1cnjo5r2mu"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_s7ilh"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_6dwyq"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ddpok"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_b7r22"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_gj6nj"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_oaqqv"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_rhr5q"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_hshht"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_d1n1k"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_h2hn5"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_btrrf"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_1fcor"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_x58c7"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_y3gwr"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_n370c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hshht"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7ilh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcw38"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uia27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drecj"]
+
+[resource]
+MenuButton/icons/icon = SubResource("ImageTexture_s7ilh")
+OptionButton/colors/icon_disabled_color = Color(0, 0, 0, 0)
+OptionButton/colors/icon_focus_color = Color(0, 0, 0, 0)
+OptionButton/colors/icon_hover_color = Color(0, 0, 0, 0)
+OptionButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+OptionButton/colors/icon_normal_color = Color(0, 0, 0, 0)
+OptionButton/colors/icon_pressed_color = Color(0, 0, 0, 0)
+OptionButton/icons/arrow = SubResource("ImageTexture_6dwyq")
+OptionButton/icons/icon = SubResource("ImageTexture_ddpok")
+PopupMenu/icons/checked = SubResource("ImageTexture_b7r22")
+PopupMenu/icons/checked_disabled = SubResource("ImageTexture_gj6nj")
+PopupMenu/icons/close = SubResource("ImageTexture_oaqqv")
+PopupMenu/icons/close_pressed = SubResource("ImageTexture_rhr5q")
+PopupMenu/icons/radio_checked = SubResource("ImageTexture_hshht")
+PopupMenu/icons/radio_checked_disabled = SubResource("ImageTexture_d1n1k")
+PopupMenu/icons/radio_unchecked = SubResource("ImageTexture_h2hn5")
+PopupMenu/icons/radio_unchecked_disabled = SubResource("ImageTexture_btrrf")
+PopupMenu/icons/submenu = SubResource("ImageTexture_1fcor")
+PopupMenu/icons/submenu_mirrored = SubResource("ImageTexture_x58c7")
+PopupMenu/icons/unchecked = SubResource("ImageTexture_y3gwr")
+PopupMenu/icons/unchecked_disabled = SubResource("ImageTexture_n370c")
+PopupMenu/styles/hover = SubResource("StyleBoxEmpty_hshht")
+PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxEmpty_s7ilh")
+PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxEmpty_vcw38")
+PopupMenu/styles/panel = SubResource("StyleBoxEmpty_uia27")
+PopupMenu/styles/separator = SubResource("StyleBoxEmpty_drecj")

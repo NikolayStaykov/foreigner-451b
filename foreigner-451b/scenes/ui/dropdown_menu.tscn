@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://btrrc3q2hok5p"]
+
+[ext_resource type="Theme" uid="uid://cge1cnjo5r2mu" path="res://assets/themes/dropdown_theme.tres" id="1_d1n1k"]
+[ext_resource type="Script" uid="uid://cipre74s6gmnh" path="res://assets/scripts/ui/dropdown_menu.gd" id="2_h2hn5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1n1k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2hn5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btrrf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3gwr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b7r22"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gj6nj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oaqqv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhr5q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1fcor"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x58c7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n370c"]
+
+[node name="dropdown_menu" type="OptionButton" unique_id=115906626]
+anchors_preset = -1
+anchor_right = 0.028
+anchor_bottom = 0.031000001
+offset_right = -0.25600052
+offset_bottom = -0.08800125
+mouse_filter = 1
+theme = ExtResource("1_d1n1k")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d1n1k")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_h2hn5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_btrrf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_y3gwr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b7r22")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gj6nj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oaqqv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_rhr5q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1fcor")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x58c7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n370c")
+script = ExtResource("2_h2hn5")
+
+[connection signal="item_focused" from="." to="." method="_on_item_focused"]
