@@ -30,7 +30,8 @@
 
 [sub_resource type="ImageTexture" id="ImageTexture_n370c"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hshht"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dwyq"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7ilh"]
 
@@ -50,6 +51,7 @@ OptionButton/colors/icon_normal_color = Color(0, 0, 0, 0)
 OptionButton/colors/icon_pressed_color = Color(0, 0, 0, 0)
 OptionButton/icons/arrow = SubResource("ImageTexture_6dwyq")
 OptionButton/icons/icon = SubResource("ImageTexture_ddpok")
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
 PopupMenu/icons/checked = SubResource("ImageTexture_b7r22")
 PopupMenu/icons/checked_disabled = SubResource("ImageTexture_gj6nj")
 PopupMenu/icons/close = SubResource("ImageTexture_oaqqv")
@@ -62,7 +64,7 @@ PopupMenu/icons/submenu = SubResource("ImageTexture_1fcor")
 PopupMenu/icons/submenu_mirrored = SubResource("ImageTexture_x58c7")
 PopupMenu/icons/unchecked = SubResource("ImageTexture_y3gwr")
 PopupMenu/icons/unchecked_disabled = SubResource("ImageTexture_n370c")
-PopupMenu/styles/hover = SubResource("StyleBoxEmpty_hshht")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_6dwyq")
 PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxEmpty_s7ilh")
 PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxEmpty_vcw38")
 PopupMenu/styles/panel = SubResource("StyleBoxEmpty_uia27")

@@ -44,6 +44,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_rhr5q"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_1fcor")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x58c7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n370c")
+alignment = 1
 script = ExtResource("2_h2hn5")
 
 [connection signal="item_focused" from="." to="." method="_on_item_focused"]
