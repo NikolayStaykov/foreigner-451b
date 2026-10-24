@@ -204,6 +204,7 @@ offset_top = 1.0
 theme = SubResource("Theme_fe2o3")
 theme_override_styles/panel = SubResource("StyleBoxFlat_1g8jr")
 
+[connection signal="pressed" from="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container/new_game_button" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container/options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container/quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="item_selected" from="options_container/options_margin_container/options_v_box_container/resolution_h_box_container/res_dropdown_menu" to="." method="_on_res_dropdown_menu_item_selected"]
