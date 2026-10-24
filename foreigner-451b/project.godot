@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GlobalVars="*uid://36yohi0384w7"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

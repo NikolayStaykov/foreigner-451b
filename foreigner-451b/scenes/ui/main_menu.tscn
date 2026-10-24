@@ -4,7 +4,9 @@
 [ext_resource type="FontFile" uid="uid://cylsrqxwo26bb" path="res://assets/text/CascadiaCode-VariableFont_wght.ttf" id="1_sl1te"]
 [ext_resource type="PackedScene" uid="uid://tsbldh16a7cw" path="res://scenes/ui/menu_button.tscn" id="2_fe2o3"]
 [ext_resource type="Script" uid="uid://2u52i4agsdmg" path="res://assets/scripts/global/label_script.gd" id="4_m1kxf"]
+[ext_resource type="PackedScene" uid="uid://bcx7d2py7ygyx" path="res://scenes/ui/check_box_label.tscn" id="6_btxxm"]
 [ext_resource type="PackedScene" uid="uid://btrrc3q2hok5p" path="res://scenes/ui/dropdown_menu.tscn" id="6_uhagc"]
+[ext_resource type="PackedScene" uid="uid://c1wwe7rril4ca" path="res://scenes/ui/value_control.tscn" id="7_btxxm"]
 
 [sub_resource type="Theme" id="Theme_fe2o3"]
 default_font = ExtResource("1_sl1te")
@@ -17,18 +19,19 @@ font_size = 42
 
 [node name="Control" type="Control" unique_id=1535132306]
 layout_mode = 3
-anchor_right = 0.035
-anchor_bottom = 0.062000003
-offset_right = -0.3199997
-offset_bottom = -0.1760025
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_1g8jr")
 
 [node name="main_panel_container" type="PanelContainer" parent="." unique_id=2128086824]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 28.825
-anchor_bottom = 16.225
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 2.0
 offset_top = 1.0
 theme = SubResource("Theme_fe2o3")
@@ -78,8 +81,8 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 28.825
-anchor_bottom = 16.225
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 2.0
 offset_top = 1.0
 theme = SubResource("Theme_fe2o3")
@@ -94,6 +97,16 @@ theme_override_constants/margin_right = 35
 [node name="options_v_box_container" type="VBoxContainer" parent="options_container/options_margin_container" unique_id=1146200656]
 layout_mode = 2
 
+[node name="display_options_separator_margin_container" type="MarginContainer" parent="options_container/options_margin_container/options_v_box_container" unique_id=726118403]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="display_options_separator_label" type="Label" parent="options_container/options_margin_container/options_v_box_container/display_options_separator_margin_container" unique_id=271017620]
+layout_mode = 2
+text = "##################################################Display options##################################################"
+script = ExtResource("4_m1kxf")
+label_name = "display_options_separator_label"
+
 [node name="resolution_h_box_container" type="HBoxContainer" parent="options_container/options_margin_container/options_v_box_container" unique_id=1154848727]
 layout_mode = 2
 theme_override_constants/separation = 53
@@ -104,7 +117,8 @@ text = "lorem ipsum"
 script = ExtResource("4_m1kxf")
 label_name = "resolution_label"
 
-[node name="dropdown_menu" parent="options_container/options_margin_container/options_v_box_container/resolution_h_box_container" unique_id=115906626 instance=ExtResource("6_uhagc")]
+[node name="res_dropdown_menu" parent="options_container/options_margin_container/options_v_box_container/resolution_h_box_container" unique_id=115906626 instance=ExtResource("6_uhagc")]
+unique_name_in_owner = true
 layout_mode = 2
 item_count = 5
 popup/item_0/text = "640x480"
@@ -115,7 +129,7 @@ popup/item_2/text = "1920x1080"
 popup/item_2/id = 1080
 popup/item_3/text = "2560x1440"
 popup/item_3/id = 1440
-popup/item_4/text = "3840×2160"
+popup/item_4/text = "3840x2160"
 popup/item_4/id = 2160
 
 [node name="full_screen_h_box_container" type="HBoxContainer" parent="options_container/options_margin_container/options_v_box_container" unique_id=370604249]
@@ -127,19 +141,73 @@ layout_mode = 2
 script = ExtResource("4_m1kxf")
 label_name = "full_screen_label"
 
-[node name="CheckBox" type="CheckBox" parent="options_container/options_margin_container/options_v_box_container/full_screen_h_box_container" unique_id=1540030]
+[node name="fullscreen_check_box" parent="options_container/options_margin_container/options_v_box_container/full_screen_h_box_container" unique_id=495419787 instance=ExtResource("6_btxxm")]
 layout_mode = 2
+
+[node name="sound_effects_separator_margin_container" type="MarginContainer" parent="options_container/options_margin_container/options_v_box_container" unique_id=1725716052]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 25
+
+[node name="sound_options_sparator_label" type="Label" parent="options_container/options_margin_container/options_v_box_container/sound_effects_separator_margin_container" unique_id=2048112493]
+layout_mode = 2
+script = ExtResource("4_m1kxf")
+label_name = "sound_options_sparator_label"
+
+[node name="sound_effects_h_box_container" type="HBoxContainer" parent="options_container/options_margin_container/options_v_box_container" unique_id=710472823]
+layout_mode = 2
+
+[node name="sound_effects_options_label" type="Label" parent="options_container/options_margin_container/options_v_box_container/sound_effects_h_box_container" unique_id=1181305511]
+layout_mode = 2
+script = ExtResource("4_m1kxf")
+label_name = "sound_effects_options_label"
+
+[node name="sound_effects_value_control" parent="options_container/options_margin_container/options_v_box_container/sound_effects_h_box_container" unique_id=1596047691 instance=ExtResource("7_btxxm")]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 9.0
+step = 1.0
+
+[node name="music_h_box_container" type="HBoxContainer" parent="options_container/options_margin_container/options_v_box_container" unique_id=1102174259]
+layout_mode = 2
+
+[node name="music_volume_label" type="Label" parent="options_container/options_margin_container/options_v_box_container/music_h_box_container" unique_id=523788651]
+layout_mode = 2
+script = ExtResource("4_m1kxf")
+label_name = "music_volume_label"
+
+[node name="music_volume_value_control" parent="options_container/options_margin_container/options_v_box_container/music_h_box_container" unique_id=1046727394 instance=ExtResource("7_btxxm")]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 9.0
+step = 1.0
+
+[node name="back_button_margin_container" type="MarginContainer" parent="options_container/options_margin_container/options_v_box_container" unique_id=470517025]
+layout_mode = 2
+theme_override_constants/margin_left = 918
+theme_override_constants/margin_top = 343
+theme_override_constants/margin_right = 0
+
+[node name="options_back_button" parent="options_container/options_margin_container/options_v_box_container/back_button_margin_container" unique_id=525741630 instance=ExtResource("2_fe2o3")]
+layout_mode = 2
+label_name = "options_back_button"
 
 [node name="credits_container" type="PanelContainer" parent="." unique_id=2043477757]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 28.825
-anchor_bottom = 16.225
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 2.0
 offset_top = 1.0
 theme = SubResource("Theme_fe2o3")
 theme_override_styles/panel = SubResource("StyleBoxFlat_1g8jr")
 
 [connection signal="pressed" from="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="main_panel_container/main_margin_container/main_v_box_container/button_margin_container/button_v_box_container/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="item_selected" from="options_container/options_margin_container/options_v_box_container/resolution_h_box_container/res_dropdown_menu" to="." method="_on_res_dropdown_menu_item_selected"]
+[connection signal="check_box_value_changed" from="options_container/options_margin_container/options_v_box_container/full_screen_h_box_container/fullscreen_check_box" to="." method="_on_fullscreen_check_box_check_box_value_changed"]
+[connection signal="value_changed" from="options_container/options_margin_container/options_v_box_container/sound_effects_h_box_container/sound_effects_value_control" to="." method="_on_sound_effects_value_control_value_changed"]
+[connection signal="value_changed" from="options_container/options_margin_container/options_v_box_container/music_h_box_container/music_volume_value_control" to="." method="_on_music_volume_value_control_value_changed"]
+[connection signal="pressed" from="options_container/options_margin_container/options_v_box_container/back_button_margin_container/options_back_button" to="." method="_on_options_back_button_pressed"]

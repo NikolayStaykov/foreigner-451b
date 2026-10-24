@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bcx7d2py7ygyx"]
+
+[ext_resource type="Script" uid="uid://blcu8y7bcchc7" path="res://assets/scripts/ui/check_box_label.gd" id="1_15fh1"]
+
+[node name="check_box" type="Label" unique_id=495419787]
+offset_right = 40.0
+offset_bottom = 23.0
+mouse_filter = 1
+text = "[ ]"
+script = ExtResource("1_15fh1")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -10,6 +10,7 @@ anchor_right = 0.007
 anchor_bottom = 0.012
 offset_right = -0.06400013
 offset_bottom = 0.22399998
+text = "lorem ipsum"
 script = ExtResource("1_65sc8")
 on_hover_sound = NodePath("on_hover_sound")
 on_click_sound = NodePath("on_click_sound")

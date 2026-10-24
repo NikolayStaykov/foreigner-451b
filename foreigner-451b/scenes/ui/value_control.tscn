@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c1wwe7rril4ca"]
+
+[ext_resource type="PackedScene" uid="uid://tsbldh16a7cw" path="res://scenes/ui/menu_button.tscn" id="1_28fw0"]
+[ext_resource type="Script" uid="uid://du8ar2cl43e1x" path="res://assets/scripts/ui/value_control.gd" id="1_ensjj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2npxc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mirb4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7m61q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2rgf4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro66r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2v2cj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j1qf8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l1ih8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fcrae"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ufnw"]
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=1596047691]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ensjj")
+
+[node name="decrease_button" parent="." unique_id=1211913045 instance=ExtResource("1_28fw0")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2npxc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mirb4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7m61q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2rgf4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ro66r")
+text = "<"
+on_hover_highlight_enabled = false
+
+[node name="value_label" type="Label" parent="." unique_id=541576050]
+unique_name_in_owner = true
+layout_mode = 2
+text = "5"
+
+[node name="increase_button" parent="." unique_id=2050843349 instance=ExtResource("1_28fw0")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2v2cj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j1qf8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l1ih8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fcrae")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ufnw")
+text = ">"
+on_hover_highlight_enabled = false
+
+[connection signal="pressed" from="decrease_button" to="." method="_on_decrease_button_pressed"]
+[connection signal="pressed" from="increase_button" to="." method="_on_increase_button_pressed"]
