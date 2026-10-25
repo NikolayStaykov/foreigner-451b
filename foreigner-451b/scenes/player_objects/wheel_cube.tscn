@@ -2,14 +2,31 @@
 
 [ext_resource type="Script" uid="uid://bhiyqgwwb0m8p" path="res://assets/scripts/gameplay/player_scripts/wheel_cube.gd" id="1_m1bcs"]
 [ext_resource type="PackedScene" uid="uid://cwubxc8v7vonf" path="res://assets/3d/inherited/wheel_cube.tscn" id="2_m1bcs"]
+[ext_resource type="Script" uid="uid://dl12inyseag7e" path="res://assets/scripts/global/audio_playe_3d_sfx.gd" id="3_h07ou"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_opxwm"]
 size = Vector3(0.9891968, 1, 1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" unique_id=1059384448]
+[sub_resource type="BoxShape3D" id="BoxShape3D_h07ou"]
+size = Vector3(0.05517578, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" unique_id=1059384448 node_paths=PackedStringArray("cube_node", "move_sound_effect")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_opxwm")
 script = ExtResource("1_m1bcs")
+cube_node = NodePath("wheelCube")
+move_sound_effect = NodePath("move_sound_effect")
 
 [node name="wheelCube" parent="." unique_id=152681558 instance=ExtResource("2_m1bcs")]
-transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="move_sound_effect" type="AudioStreamPlayer3D" parent="." unique_id=2105130980]
+script = ExtResource("3_h07ou")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1102606972]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2138995115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.537112, 0, -2.8281253e-09)
+shape = SubResource("BoxShape3D_h07ou")
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

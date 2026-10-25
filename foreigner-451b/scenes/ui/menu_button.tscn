@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://tsbldh16a7cw"]
 
 [ext_resource type="Script" uid="uid://bhix6isfru4b1" path="res://assets/scripts/ui/menu_button.gd" id="1_65sc8"]
-[ext_resource type="Script" uid="uid://c8dqsu0bknef6" path="res://assets/scripts/global/audio_player_2d_sfx_script.gd" id="2_14o44"]
+[ext_resource type="Script" uid="uid://c8dqsu0bknef6" path="res://assets/scripts/global/audio_player_2d_sfx.gd" id="2_14o44"]
 [ext_resource type="AudioStream" uid="uid://dir15hkr2qa67" path="res://assets/sound/sfx/233323__ngphil22__50-bmg-am.mp3" id="2_x83m7"]
 
 [node name="menu_button" type="Button" unique_id=1211913045 node_paths=PackedStringArray("on_hover_sound", "on_click_sound")]
