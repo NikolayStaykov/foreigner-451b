@@ -6,6 +6,11 @@ var sound_effects_volume: float = 3
 var music_volume: float = 5
 var resolution: String = "1920x1080"
 
+#controls settings
+var keyboard_controls: bool = true
+var wheel_cube_move_right_key: Key = KEY_D
+var wheel_cube_move_left_key: Key = KEY_A
+
 #signals for settings change
 signal sound_effects_volume_changed
 signal music_volume_changed
