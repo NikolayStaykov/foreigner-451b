@@ -3,11 +3,14 @@ extends Node
 @onready var main_body: CharacterBody3D
 @export var cube_node: Node3D
 @export var move_sound_effect: AudioStreamPlayer3D
+@export var red_light: OmniLight3D
+@export var green_light: OmniLight3D
 
 var animation_player: AnimationPlayer
 const SPEED: float = 5.0
 var perserved_velocity : float = 0
 var move_dir: int = 0
+var last_input_type: int = 0 # 0 - none, 1 - mouse, 2 - keyboard
 var mouse_right_held: bool = false 
 var mouse_left_held: bool = false 
 
@@ -24,9 +27,9 @@ func _physics_process(delta: float) -> void:
 			main_body.velocity.x += perserved_velocity
 			lose_air_momentum()
 	else: 
-		if GlobalVars.keyboard_controls:
+		if last_input_type != 1:
 			handle_keyboard_input()
-		else:
+		if last_input_type != 2:
 			handle_mouse_input()
 		if move_dir == -1:
 			animation_player.play_backwards("move")
@@ -34,26 +37,35 @@ func _physics_process(delta: float) -> void:
 			animation_player.play("move")
 		else: 
 			animation_player.pause()
+	hanlde_lights()
 	main_body.move_and_slide()
 		
 func handle_keyboard_input() -> void: 
 	if Input.is_key_pressed(GlobalVars.wheel_cube_move_right_key) and move_dir == 0:
+		last_input_type = 2
 		start_move_right()
 	elif Input.is_key_pressed(GlobalVars.wheel_cube_move_left_key) and move_dir == 0:
+		last_input_type = 2
 		start_move_left()
 	elif !Input.is_key_pressed(GlobalVars.wheel_cube_move_right_key) and move_dir == 1:
+		last_input_type = 0
 		stop_move()
 	elif !Input.is_key_pressed(GlobalVars.wheel_cube_move_left_key) and move_dir == -1:
+		last_input_type = 0
 		stop_move()
 		
 func handle_mouse_input() -> void: 
 	if mouse_left_held and move_dir == 0:
+		last_input_type = 1
 		start_move_right()
 	elif mouse_right_held and move_dir == 0:
+		last_input_type = 1
 		start_move_left()
 	elif !mouse_left_held and move_dir == 1:
+		last_input_type = 0
 		stop_move()
 	elif !mouse_right_held and move_dir == -1:
+		last_input_type = 0
 		stop_move()
 
 func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -101,3 +113,7 @@ func lose_air_momentum() -> void:
 		perserved_velocity += 1
 		main_body.velocity.x -= 1
 	get_tree().create_timer(0.1,true).connect("Timeout",lose_air_momentum)
+	
+func hanlde_lights() -> void: 
+	red_light.visible = !main_body.is_on_floor()
+	green_light.visible = !red_light.visible
