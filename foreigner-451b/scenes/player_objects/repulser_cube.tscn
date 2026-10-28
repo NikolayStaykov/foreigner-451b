@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bhh5spixos4bv"]
+
+[ext_resource type="Script" uid="uid://b1g2juyb8b08v" path="res://assets/scripts/gameplay/player_scripts/repulser_cube.gd" id="1_3u2l0"]
+[ext_resource type="PackedScene" uid="uid://c1qnop0m3xqy5" path="res://assets/3d/inherited/repulser_cube.tscn" id="1_goj74"]
+[ext_resource type="Script" uid="uid://dl12inyseag7e" path="res://assets/scripts/global/audio_playe_3d_sfx.gd" id="2_dv2yy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dv2yy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_louj5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" unique_id=778062202 node_paths=PackedStringArray("cube_node", "repulser_sound_effect", "red_light", "green_light")]
+shape = SubResource("BoxShape3D_dv2yy")
+script = ExtResource("1_3u2l0")
+cube_node = NodePath("repulserCube")
+repulser_sound_effect = NodePath("repulser_sound_effect")
+red_light = NodePath("red_light")
+green_light = NodePath("green_light")
+button = 32
+
+[node name="repulserCube" parent="." unique_id=2058327641 instance=ExtResource("1_goj74")]
+transform = Transform3D(-2.2074252e-08, 0, -0.505, 0, 0.505, 0, 0.505, 0, -2.2074252e-08, 0, 0, 0)
+
+[node name="repulser_sound_effect" type="AudioStreamPlayer3D" parent="." unique_id=1607186020]
+script = ExtResource("2_dv2yy")
+
+[node name="clickable_area" type="Area3D" parent="." unique_id=680315010]
+transform = Transform3D(-2.9555625e-09, 0, 1, 0, 1, 0, -0.06761539, 0, -4.371139e-08, 0.035391808, 0, 0.5512755)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="clickable_area" unique_id=257817055]
+shape = SubResource("BoxShape3D_louj5")
+
+[node name="green_light" type="OmniLight3D" parent="." unique_id=1326932000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4227289, 0.36635154, 0.55055195)
+light_color = Color(0.03529412, 0.90588236, 0, 1)
+light_energy = 0.09
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+
+[node name="red_light" type="OmniLight3D" parent="." unique_id=323051142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29938203, 0.3668136, 0.5574109)
+visible = false
+light_color = Color(0.90588236, 0.019607844, 0, 1)
+light_energy = 0.09
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+
+[connection signal="input_event" from="clickable_area" to="." method="_on_clickable_area_input_event"]

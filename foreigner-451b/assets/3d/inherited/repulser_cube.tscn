@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c1qnop0m3xqy5"]
+
+[ext_resource type="PackedScene" uid="uid://dhg4htidvucja" path="res://assets/3d/repulserCube.fbx" id="1_bchfw"]
+
+[node name="repulserCube" unique_id=2058327641 instance=ExtResource("1_bchfw")]
+
+[node name="Icosphere" parent="." index="3" unique_id=458645704]
+transform = Transform3D(67.68841, 0, 0, 0, -2.9587543e-06, 67.68841, 0, -67.68841, -2.9587543e-06, 0, 0, 0)

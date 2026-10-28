@@ -21,4 +21,4 @@ shape = SubResource("BoxShape3D_lukxp")
 transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=96237756]
-transform = Transform3D(1, 0, 0, 0, 0.9167327, 0.39950123, 0, -0.39950123, 0.9167327, 0, 2.4389062, 5.0787764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.079)

@@ -9,6 +9,8 @@ extends Node
 var animation_player: AnimationPlayer
 const SPEED: float = 5.0
 var perserved_velocity : float = 0
+var air_velocity_fall_off: float = 0.5
+var air_velocity_fall_off_time_step: float = 0.7
 var move_dir: int = 0
 var last_input_type: int = 0 # 0 - none, 1 - mouse, 2 - keyboard
 var mouse_right_held: bool = false 
@@ -27,6 +29,9 @@ func _physics_process(delta: float) -> void:
 			main_body.velocity.x += perserved_velocity
 			lose_air_momentum()
 	else: 
+		if perserved_velocity != 0:
+			main_body.velocity.x -= perserved_velocity
+			perserved_velocity = 0
 		if last_input_type != 1:
 			handle_keyboard_input()
 		if last_input_type != 2:
@@ -100,19 +105,16 @@ func _on_area_3d_mouse_exited() -> void:
 	mouse_right_held = false
 
 func lose_air_momentum() -> void: 
-	if main_body.is_on_floor():
-		perserved_velocity = 0
-		
 	if perserved_velocity == 0: 
 		return
 		
 	if perserved_velocity > 0:
-		perserved_velocity -= 1
-		main_body.velocity.x -= 1
+		perserved_velocity -= air_velocity_fall_off
+		main_body.velocity.x -= air_velocity_fall_off
 	elif perserved_velocity < 0:
-		perserved_velocity += 1
-		main_body.velocity.x -= 1
-	get_tree().create_timer(0.1,true).connect("Timeout",lose_air_momentum)
+		perserved_velocity += air_velocity_fall_off
+		main_body.velocity.x += air_velocity_fall_off
+	get_tree().create_timer(air_velocity_fall_off_time_step,true).connect("timeout",lose_air_momentum)
 	
 func hanlde_lights() -> void: 
 	red_light.visible = !main_body.is_on_floor()

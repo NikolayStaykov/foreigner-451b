@@ -20,19 +20,20 @@ red_light = NodePath("red_light")
 green_light = NodePath("green_light")
 
 [node name="wheelCube" parent="." unique_id=152681558 instance=ExtResource("2_m1bcs")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0007527471, -0.0018523932, 0.00076878065)
 
 [node name="move_sound_effect" type="AudioStreamPlayer3D" parent="." unique_id=2105130980]
 script = ExtResource("3_h07ou")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1102606972]
+[node name="clickable_area" type="Area3D" parent="." unique_id=1102606972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6629869, 0, -0.012073963)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2138995115]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.537112, 0, -2.8281253e-09)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="clickable_area" unique_id=2138995115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11980116, 0, 0.017488725)
 shape = SubResource("BoxShape3D_h07ou")
 
 [node name="green_light" type="OmniLight3D" parent="." unique_id=640422038]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5101592, 0.37463072, -0.4144241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54362684, 0.37122867, -0.41340563)
 visible = false
 light_color = Color(0.03529412, 0.90588236, 0, 1)
 light_energy = 0.09
@@ -40,12 +41,12 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 
 [node name="red_light" type="OmniLight3D" parent="." unique_id=643175410]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5560042, 0.3818661, -0.29732043)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54872715, 0.37110505, -0.29666665)
 visible = false
 light_color = Color(0.90588236, 0.019607844, 0, 1)
 light_energy = 0.09
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 
-[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
-[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
+[connection signal="input_event" from="clickable_area" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_exited" from="clickable_area" to="." method="_on_area_3d_mouse_exited"]
