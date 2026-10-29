@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bpe3up3xejfw3"]
+
+[ext_resource type="PackedScene" uid="uid://dkeuw7qwmbhpe" path="res://assets/3d/jetEngineCube.fbx" id="1_oglba"]
+
+[node name="jetEngineCube" unique_id=1102235255 instance=ExtResource("1_oglba")]

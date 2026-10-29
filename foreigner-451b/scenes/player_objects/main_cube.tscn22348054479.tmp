@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dt1vfeopx885g"]
+
+[ext_resource type="Script" uid="uid://d2skx3afsejwi" path="res://assets/scripts/gameplay/player_scripts/main_cube.gd" id="1_2hfeb"]
+[ext_resource type="PackedScene" uid="uid://bdmdlm2e0vgcf" path="res://assets/3d/mainAIcube.fbx" id="2_lukxp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lukxp"]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=876077619]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_2hfeb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1928183620]
+shape = SubResource("BoxShape3D_lukxp")
+
+[node name="mainAIcube" parent="." unique_id=1879680151 instance=ExtResource("2_lukxp")]
+transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=96237756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.079)
