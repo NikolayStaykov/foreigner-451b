@@ -77,13 +77,13 @@ func parse_mouse_input(event: InputEventMouseButton) -> void:
 func move_right() -> void: 
 	move_dir = 1
 	main_body.apply_force(Vector3(SPEED * last_delta,0,0))
-	if move_sound_effect.playing:
+	if !move_sound_effect.playing:
 		move_sound_effect.play()
 
 func move_left() -> void: 
 	move_dir = -1
 	main_body.apply_force(Vector3(SPEED * last_delta * -1.0,0,0))
-	if move_sound_effect.playing:
+	if !move_sound_effect.playing:
 		move_sound_effect.play()
 
 func stop_move() -> void:

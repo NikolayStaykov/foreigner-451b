@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhiyqgwwb0m8p" path="res://assets/scripts/gameplay/player_scripts/wheel_cube.gd" id="1_m1bcs"]
 [ext_resource type="PackedScene" uid="uid://cwubxc8v7vonf" path="res://assets/3d/inherited/wheel_cube.tscn" id="2_m1bcs"]
+[ext_resource type="AudioStream" uid="uid://548gsyqme81s" path="res://assets/sound/sfx/wheel_sound.mp3" id="3_e1w5t"]
 [ext_resource type="Script" uid="uid://dl12inyseag7e" path="res://assets/scripts/global/audio_playe_3d_sfx.gd" id="3_h07ou"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_opxwm"]
@@ -23,6 +24,7 @@ green_light = NodePath("green_light")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0007527471, -0.0018523932, 0.00076878065)
 
 [node name="move_sound_effect" type="AudioStreamPlayer3D" parent="." unique_id=2105130980]
+stream = ExtResource("3_e1w5t")
 script = ExtResource("3_h07ou")
 
 [node name="clickable_area" type="Area3D" parent="." unique_id=1102606972]

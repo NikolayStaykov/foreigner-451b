@@ -4,6 +4,7 @@ extends Node3D
 @export var red_light: OmniLight3D
 @export var green_light: OmniLight3D
 @export var particles: GPUParticles3D
+@export var rocket_sound_effect: AudioStreamPlayer3D
 @export var button: Key
 
 var fuel: float = 10
@@ -14,6 +15,7 @@ var thrust: float = 1600
 var force_vector_y: float
 var force_vector_x: float
 var mouse_button_pressed: bool = false
+var recharging: bool = false 
 
 func _ready() -> void:
 	force_vector_x = -1 * round(cos(rotation.z))
@@ -27,7 +29,11 @@ func _physics_process(delta: float) -> void:
 		particles.emitting = true
 		main_body.apply_force(Vector3(thrust * force_vector_x * delta, thrust * force_vector_y * delta,0))
 		fuel -= burn_rate * delta
-	elif fuel <= 0:
+		if !rocket_sound_effect.playing:
+			rocket_sound_effect.play(0)
+	elif fuel <= 0 and !recharging:
+		rocket_sound_effect.stop()
+		recharging = true
 		green_light.visible = false
 		red_light.visible = true
 		particles.emitting = false
@@ -35,8 +41,11 @@ func _physics_process(delta: float) -> void:
 			fuel = max_fuel
 			red_light.visible = false
 			green_light.visible = true
+			recharging = false
 		)
 	elif fuel > 0 and fuel < max_fuel:
+		if rocket_sound_effect.playing:
+			rocket_sound_effect.stop()
 		particles.emitting = false
 		fuel += fuel_regen_rate * delta
 

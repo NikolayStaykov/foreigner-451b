@@ -2,18 +2,29 @@
 
 [ext_resource type="Script" uid="uid://d2skx3afsejwi" path="res://assets/scripts/gameplay/player_scripts/main_cube.gd" id="1_2hfeb"]
 [ext_resource type="PackedScene" uid="uid://bdmdlm2e0vgcf" path="res://assets/3d/mainAIcube.fbx" id="2_lukxp"]
+[ext_resource type="FontFile" uid="uid://cylsrqxwo26bb" path="res://assets/text/CascadiaCode-VariableFont_wght.ttf" id="3_nbhxv"]
+[ext_resource type="Script" uid="uid://2u52i4agsdmg" path="res://assets/scripts/global/label_script.gd" id="4_euei5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lukxp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lukxp"]
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=876077619]
+[sub_resource type="Theme" id="Theme_oldlt"]
+default_font = ExtResource("3_nbhxv")
+
+[sub_resource type="LabelSettings" id="LabelSettings_s3vmb"]
+font_size = 62
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=876077619 node_paths=PackedStringArray("build_menu")]
+collision_layer = 16385
+collision_mask = 16385
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_lukxp")
 script = ExtResource("1_2hfeb")
+build_menu = NodePath("Camera3D/build_menu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1928183620]
 shape = SubResource("BoxShape3D_lukxp")
@@ -25,3 +36,27 @@ transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.079)
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D" unique_id=2047063045]
+
+[node name="build_menu" type="PanelContainer" parent="Camera3D" unique_id=523476800]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_oldlt")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/build_menu" unique_id=1606420073]
+layout_mode = 2
+theme_override_constants/margin_top = 44
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/build_menu/MarginContainer" unique_id=879347681]
+layout_mode = 2
+
+[node name="build_menu_title" type="Label" parent="Camera3D/build_menu/MarginContainer/VBoxContainer" unique_id=800197157]
+layout_mode = 2
+text = "Lorem ipsum"
+label_settings = SubResource("LabelSettings_s3vmb")
+horizontal_alignment = 1
+script = ExtResource("4_euei5")
+label_name = "build_menu_title"

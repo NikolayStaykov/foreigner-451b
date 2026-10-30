@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cx66iga6ar73l" path="res://assets/scripts/gameplay/player_scripts/rocket_cube.gd" id="1_4wpxm"]
 [ext_resource type="PackedScene" uid="uid://bpe3up3xejfw3" path="res://assets/3d/inherited/jet_engine_cube.tscn" id="1_reql2"]
+[ext_resource type="AudioStream" uid="uid://dj7d0c07lhac4" path="res://assets/sound/sfx/rocket_sound.mp3" id="3_uj6vt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4wpxm"]
 
@@ -26,15 +27,14 @@ size = Vector2(0.02, 0.02)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uj6vt"]
 size = Vector3(1, 1, 0.072265625)
 
-[node name="CollisionShape3D" type="CollisionShape3D" unique_id=1241993791 node_paths=PackedStringArray("red_light", "green_light", "particles")]
+[node name="CollisionShape3D" type="CollisionShape3D" unique_id=1241993791 node_paths=PackedStringArray("red_light", "green_light", "particles", "rocket_sound_effect")]
+shape = SubResource("BoxShape3D_4wpxm")
 script = ExtResource("1_4wpxm")
 red_light = NodePath("red_light")
 green_light = NodePath("green_light")
 particles = NodePath("engine_particles")
+rocket_sound_effect = NodePath("jet_sound_effect")
 button = 81
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=565335257]
-shape = SubResource("BoxShape3D_4wpxm")
 
 [node name="jetEngineCube" parent="." unique_id=1102235255 instance=ExtResource("1_reql2")]
 transform = Transform3D(-2.2074252e-08, 0, -0.505, 0, 0.505, 0, 0.505, 0, -2.2074252e-08, -8.314848e-05, 0, 0)
@@ -55,6 +55,7 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 
 [node name="jet_sound_effect" type="AudioStreamPlayer3D" parent="." unique_id=1095968462]
+stream = ExtResource("3_uj6vt")
 
 [node name="engine_particles" type="GPUParticles3D" parent="." unique_id=1553081718]
 transform = Transform3D(0.9999927, -0.0033656633, 0.0017903326, 0.0033790725, 0.9999659, -0.00753517, -0.0017648935, 0.0075411685, 0.99996996, 0.47381252, 0, 0)
